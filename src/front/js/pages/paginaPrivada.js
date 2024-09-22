@@ -27,7 +27,7 @@ export const PaginaPrivada = () => {
                     <div className="col"></div>
                     <div className="col">
                         <h1 className="display-4">
-                            Si has llegado hasta aquí, quiere decir que aprobé el proyecto!!
+                            Si has llegado hasta aquí, quiere decir que aprobé el ÚLTIMO proyecto!!
                         </h1>
                         <br></br>
                         <img src="https://gifdb.com/images/high/baby-yoda-celebration-dance-79t7eccrnb2vupik.gif" alt="Celebration" />
