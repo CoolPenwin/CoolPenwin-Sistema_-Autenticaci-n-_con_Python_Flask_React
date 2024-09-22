@@ -25,41 +25,46 @@ const Signup = () => {
     }
 
     return (
-        <div className="container text-center ">
-        {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
-        <form className="form">
-        <h1 className="title">Registro</h1>
-        <br />
-            <div className="mb-3">
-                <label htmlFor="email" className="form-label">Email:</label>
-                <input
-                    type="email"
-                    className="input"
-                    id="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-            </div>
-            <div className="mb-3">
-                <label htmlFor="password" className="form-label">Contraseña:</label>
-                <input
-                    type="password"
-                    className="input"
-                    id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-            </div>
-            <button type="button" className="submit" onClick={handleSignup}>
-                Registrarse
-            </button>
-            <Link to="/">
-                <button type="button" className="btn btn-primary" style={{ margin: "5px" }}>
-                    Volver a Inicio
+        <>
+        <div className="d-flex justify-content-center align-items-center flex-column">
+            {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
+            <form className="form" onSubmit={(e) => { e.preventDefault(); handleSignup(); }}>
+                <p className="title">Registro</p>
+                <p className="message">Por favor, ingresa tu email y contraseña para registrarte.</p>
+                
+                <label>
+                    <input
+                        type="email"
+                        className="input"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Enter email"
+                        required
+                    />
+                    <span>Email</span>
+                </label>
+
+                <label>
+                    <input
+                        type="password"
+                        className="input"
+                        id="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Password"
+                        required
+                        />
+                    <span>Contraseña</span>
+                </label>
+
+                <button type="submit" className="submit">
+                    Registrarse
                 </button>
-            </Link>
-        </form>
-    </div>
+                <p className="signin">¿Ya tienes una cuenta? <Link to="/">Inicia sesión</Link></p>
+            </form>
+        </div>
+                        </>
     );
 };
 
