@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import "../../styles/form.css";
 
 const Signup = () => {
     const [email, setEmail] = useState("");
@@ -24,41 +25,41 @@ const Signup = () => {
     }
 
     return (
-        <div className="container text-center">
-            <h1>Registro</h1>
-            <br />
-            {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
-            <form>
-                <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Email:</label>
-                    <input
-                        type="email"
-                        className="form-control"
-                        id="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="password" className="form-label">Contraseña:</label>
-                    <input
-                        type="password"
-                        className="form-control"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </div>
-                <button type="button" className="btn btn-primary" onClick={handleSignup}>
-                    Registrarse
+        <div className="container text-center ">
+        {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
+        <form className="form">
+        <h1 className="title">Registro</h1>
+        <br />
+            <div className="mb-3">
+                <label htmlFor="email" className="form-label">Email:</label>
+                <input
+                    type="email"
+                    className="input"
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="password" className="form-label">Contraseña:</label>
+                <input
+                    type="password"
+                    className="input"
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+            </div>
+            <button type="button" className="submit" onClick={handleSignup}>
+                Registrarse
+            </button>
+            <Link to="/">
+                <button type="button" className="btn btn-primary" style={{ margin: "5px" }}>
+                    Volver a Inicio
                 </button>
-                <Link to="/">
-                    <button type="button" className="btn btn-primary" style={{ margin: "5px" }}>
-                        Volver a Inicio
-                    </button>
-                </Link>
-            </form>
-        </div>
+            </Link>
+        </form>
+    </div>
     );
 };
 

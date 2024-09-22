@@ -1,6 +1,4 @@
 import React, { useState, useContext } from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import { Context } from '../store/appContext';
 import { Navigate, Link } from 'react-router-dom';
 import "../../styles/form.css";
@@ -26,28 +24,33 @@ function FormData() {
         <>
             {store.auth === true ? <Navigate to="/loginok" /> :
                 <div className="d-flex justify-content-center align-items-center flex-column">
-                    <Form className="form-container" onSubmit={sendData}>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label className="futuristic-label">Email address</Form.Label>
-                            <Form.Control 
-                                className="futuristic-input" 
+                    <form className="form" onSubmit={sendData}>
+                        <p className="title">Login</p>
+                        <p className="message">Please enter your email and password to login.</p>
+                        
+                        <label>
+                            <input 
+                                className="input" 
                                 value={email} 
                                 onChange={(e) => setEmail(e.target.value)} 
                                 type="email" 
                                 placeholder="Enter email" 
+                                required 
                             />
-                        </Form.Group>
+                            <span>Email</span>
+                        </label>
 
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Label className="futuristic-label">Password</Form.Label>
-                            <Form.Control 
-                                className="futuristic-input" 
+                        <label>
+                            <input 
+                                className="input" 
                                 value={password} 
                                 onChange={(e) => setPassword(e.target.value)} 
                                 type="password" 
                                 placeholder="Password" 
+                                required 
                             />
-                        </Form.Group>
+                            <span>Password</span>
+                        </label>
 
                         {error && (
                             <div className="alert alert-danger" role="alert">
@@ -55,15 +58,11 @@ function FormData() {
                             </div>
                         )}
 
-                        <div className="d-flex justify-content-between">
-                            <Button variant="primary" type="submit">
-                                Login
-                            </Button>
-                            <Link to="/signup">
-                                <Button variant="primary" className="ms-2">Register</Button>
-                            </Link>
-                        </div>
-                    </Form>
+                        <button className="submit" type="submit">
+                            Login
+                        </button>
+                        <p className="signin">Don't have an account? <Link to="/signup">Register</Link></p>
+                    </form>
                 </div>
             }
         </>
