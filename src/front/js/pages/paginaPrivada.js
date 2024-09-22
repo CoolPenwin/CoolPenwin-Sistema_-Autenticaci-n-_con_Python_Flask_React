@@ -30,6 +30,7 @@ export const PaginaPrivada = () => {
                             Si has llegado hasta aquí, quiere decir que aprobé el proyecto!!
                         </h1>
                         <br></br>
+                        <img src="https://gifdb.com/images/high/baby-yoda-celebration-dance-79t7eccrnb2vupik.gif" alt="Celebration" />
                     </div>
                     <div className="col"></div>
                 </div>
